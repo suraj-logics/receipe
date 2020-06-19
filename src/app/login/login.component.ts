@@ -15,8 +15,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // Through Form Group
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required,Validators.maxLength(3)]),
-      password: new FormControl('', [Validators.required,Validators.minLength(2)])
+      username: new FormControl('', [Validators.required, Validators.maxLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(2)])
     })
 
 
@@ -32,10 +33,10 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.isSubmited = true;
-    if(this.loginForm.invalid){
+    if (this.loginForm.invalid) {
       alert("All fields are required")
     }
-    else{
+    else {
       this.isSubmited = false;
       console.log(this.loginForm.value)
     }

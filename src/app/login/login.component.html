@@ -15,8 +15,18 @@
                 Name is required.
             </div>
         </div>
-        <!-- <span *ngIf=" isSubmited && getError.username.errors.required">username required</span> -->
-        <!-- <span  >Username is required</span> -->
+
+        <label for="uname"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" formControlName="email" required>
+        <div *ngIf="getError.email.invalid && (getError.email.dirty || getError.email.touched)"
+            class="alert alert-danger">
+            <div *ngIf="getError.email.errors.pattern">
+                Please enter valid email.
+            </div>
+            <div *ngIf="getError.email.errors.required">
+                Email is required.
+            </div>
+        </div>
 
         <label for="psw"><b>Password</b></label>
         <input type="text" placeholder="Enter Password" formControlName="password" required>
