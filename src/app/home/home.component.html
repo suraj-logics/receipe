@@ -1,0 +1,29 @@
+<ul *ngFor="let person of people">
+    <li *ngIf="person.country === 'UK'">
+        <div>
+            {{person.name}} {{person.country}}
+        </div>
+    </li>
+</ul>
+
+<h4>NgStyle</h4>
+<ul *ngFor="let person of people">
+    <li>
+        <div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }">
+            {{person.name}}
+        </div>
+    </li>
+</ul>
+
+<h4>NgClass</h4>
+<ul *ngFor="let person of people">
+    <li [ngClass]="{  
+    'bg-color':person.country === 'UK',
+    'text-primary':person.country === 'USA',
+    'text-danger':person.country === 'HK'
+  }">{{ person.name }} ({{ person.country }})
+    </li>
+    <li [ngClass]= "person.country === 'UK'?'bg-color':'bg-color1'">
+        {{person.name}} By ternary
+    </li>
+</ul>

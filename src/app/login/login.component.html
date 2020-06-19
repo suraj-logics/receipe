@@ -1,0 +1,43 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="imgcontainer">
+        <img src="" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" formControlName="username" required>
+        <div *ngIf="getError.username.invalid && (getError.username.dirty || getError.username.touched)"
+            class="alert alert-danger">
+            <div *ngIf="getError.username.errors.maxlength">
+                Maximum 3 char is required.
+            </div>
+            <div *ngIf="getError.username.errors.required">
+                Name is required.
+            </div>
+        </div>
+        <!-- <span *ngIf=" isSubmited && getError.username.errors.required">username required</span> -->
+        <!-- <span  >Username is required</span> -->
+
+        <label for="psw"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" formControlName="password" required>
+        <div *ngIf="getError.password.invalid && (getError.password.dirty || getError.password.touched)"
+            class="alert alert-danger">
+            <div *ngIf="getError.password.errors.required">
+                Password is required.
+            </div>
+            <div *ngIf="getError.password.errors.minlength">
+                Minimum 2 char is required.
+            </div>
+        </div>
+
+        <button type="submit">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</form>
