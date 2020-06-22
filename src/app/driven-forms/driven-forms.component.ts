@@ -9,11 +9,12 @@ export class DrivenFormsComponent implements OnInit {
   model: any = {};
 
   constructor() { }
-  
+
   ngOnInit(): void {
   }
-      onSubmit() {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model, null, 4));
-      }
+
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model, null, 4));
+  }
 
 }
